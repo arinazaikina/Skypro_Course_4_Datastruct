@@ -1,11 +1,13 @@
 from datastruct.node import Node
 
+
 class Stack:
     """
     Базовый класс, описывающий Стэк
     Attrs:
         top: ссылка на верхний (крайний в стэке) узел
     """
+
     def __init__(self):
         self.__top = None
 
@@ -37,3 +39,14 @@ class Stack:
         new_node = Node(data=value)
         new_node.next_node = self.top
         self.__top = new_node
+
+    def pop(self):
+        """
+        Удаляет из стэка верхний элемент (последний добавленный) и возвращает данные
+        удалённого элемента
+        """
+        if self.__top is None:
+            return
+        value = self.__top.data
+        self.__top = self.__top.next_node
+        return value
