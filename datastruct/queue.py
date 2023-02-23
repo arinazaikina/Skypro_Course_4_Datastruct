@@ -1,3 +1,5 @@
+from typing import Any
+
 from datastruct.node import Node
 
 
@@ -5,11 +7,14 @@ class Queue:
     """
     Базовый класс Очередь
     """
-    def __init__(self):
+    def __init__(self) -> None:
+        """
+        Очередь инициализируется пустой
+        """
         self.__head = None
         self.__tail = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         result = ''
         current_node = self.__head
         while current_node is not None:
@@ -20,16 +25,16 @@ class Queue:
         return result
 
     @property
-    def head(self) -> 'Node':
+    def head(self) -> Node:
         """Геттер. Возвращает первый узел очереди"""
         return self.__head
 
     @property
-    def tail(self) -> 'Node':
+    def tail(self) -> Node:
         """Геттер. Возвращает последний узел очереди"""
         return self.__tail
 
-    def enqueue(self, value) -> None:
+    def enqueue(self, value: Any) -> None:
         """
         Добавляет данные в конец очереди.
         :param value: данные

@@ -1,3 +1,5 @@
+from typing import Any
+
 from datastruct.node import Node
 
 
@@ -8,10 +10,11 @@ class Stack:
         top: ссылка на верхний (крайний в стэке) узел
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """Стэк инициализируется пустым"""
         self.__top = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         result = ''
         current_node = self.__top
         while current_node is not None:
@@ -22,16 +25,16 @@ class Stack:
         return result
 
     @property
-    def top(self):
+    def top(self) -> Node:
         """Геттер. Возвращает ссылку на верхний узел"""
         return self.__top
 
     @top.setter
-    def top(self, top):
+    def top(self, top: Node) -> None:
         """Сеттер. Устанавливает ссылку на верхний узел"""
         self.__top = top
 
-    def push(self, value) -> None:
+    def push(self, value: Any) -> None:
         """
         Добавляет данные в стек
         :param value: данные
@@ -40,7 +43,7 @@ class Stack:
         new_node.next_node = self.top
         self.__top = new_node
 
-    def pop(self):
+    def pop(self) -> Any:
         """
         Удаляет из стэка верхний элемент (последний добавленный) и возвращает данные
         удалённого элемента
