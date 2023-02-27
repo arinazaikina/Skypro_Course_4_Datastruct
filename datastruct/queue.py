@@ -46,3 +46,14 @@ class Queue:
         else:
             self.__tail.next_node = new_node
             self.__tail = new_node
+
+    def dequeue(self) -> Any:
+        """
+        Удаляет первый добавленный в очередь элемент и
+        возвращает данные удалённого элемента.
+        """
+        if self.__head is None:
+            return
+        value = self.__head.data
+        self.__head = self.__head.next_node
+        return value

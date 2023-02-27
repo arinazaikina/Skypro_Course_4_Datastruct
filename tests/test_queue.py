@@ -21,3 +21,10 @@ class TestStack(unittest.TestCase):
         self.assertEqual(self.queue.head.next_node.data, 'data2')
         self.assertEqual(self.queue.tail.data, 'data3')
         self.assertEqual(self.queue.tail.next_node, None)
+
+    def test_dequeue(self):
+        """Проверка удаления элементов из очереди"""
+        self.assertEqual(self.queue.dequeue(), 'data1')
+        self.assertEqual(self.queue.dequeue(), 'data2')
+        self.assertEqual(self.queue.dequeue(), 'data3')
+        self.assertEqual(self.queue.dequeue(), None)
