@@ -3,7 +3,7 @@ import unittest
 from datastruct.queue import Queue
 
 
-class TestStack(unittest.TestCase):
+class TestQueue(unittest.TestCase):
     def setUp(self):
         """Подготовка тестовой очереди"""
         self.queue = Queue()
