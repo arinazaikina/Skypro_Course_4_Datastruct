@@ -1,10 +1,9 @@
-from typing import Any
-
 from datastruct.node import Node
 
 
 class LinkedList:
     """Базовый класс Связанный список"""
+
     def __init__(self):
         """Односвязный список инициализируется пустым"""
         self.__first_node = None
@@ -55,3 +54,29 @@ class LinkedList:
         else:
             self.__last_node.next_node = new_node
             self.__last_node = new_node
+
+    def to_list(self):
+        """Возвращает список с данными, содержащимися в односвязном списке"""
+        data = []
+        current_node = self.__first_node
+        while current_node is not None:
+            data.append(current_node.data)
+            current_node = current_node.next_node
+        return data
+
+    def get_data_by_id(self, value_id: int) -> dict | None:
+        """
+        Возвращает первый найденный словарь с ключом id,
+        значение которого равно переданному в метод значению.
+        :param value_id: значение ключа 'id'
+        """
+        current_node = self.__first_node
+        while current_node is not None:
+            try:
+                if current_node.data.get('id') == value_id:
+                    return current_node.data
+                current_node = current_node.next_node
+            except AttributeError:
+                print('Данные не являются словарем или в словаре нет id.')
+                break
+        return None
